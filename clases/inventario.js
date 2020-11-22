@@ -54,11 +54,17 @@ export default class Inventario {
     
     buscarProducto(cod){
         let t = this.inicio
-        while (t.codigo != cod){
-            t = t.siguiente
-        }
-        if (t.codigo === cod){
-            return t
+        if (t != null){
+            while (t.codigo != cod && t.siguiente != null){
+                t = t.siguiente
+            }
+            if (t.codigo === cod){
+                return t
+            } else {
+                alert('Producto no encontrado')
+            }
+        } else {
+            return false
         }
     }
 

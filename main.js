@@ -68,14 +68,18 @@ btnEliminarPrimero.addEventListener('click', () =>{
 
 btnBuscar.addEventListener('click', () =>{
     let codigo = codigoProducto.value
-    console.log(inventario.buscarProducto(codigo))
+    //console.log(inventario.buscarProducto(codigo))
     let producto = inventario.buscarProducto(codigo)
-    etEstado.innerHTML = "Producto buscado: " + producto.nombre
-    etNombre.innerHTML = "Nombre: " + producto.nombre
-    etCodigo.innerHTML = "Código: " + producto.codigo
-    etDescripcion.innerHTML = "Descripción: " + producto.descripcion
-    etCantidad.innerHTML = "Cantidad: " + producto.cantidad
-    etCosto.innerHTML = "Costo: " + producto.costo
+    if (producto != false) {
+        etEstado.innerHTML = "Producto buscado: " + producto.nombre
+        etNombre.innerHTML = "Nombre: " + producto.nombre
+        etCodigo.innerHTML = "Código: " + producto.codigo
+        etDescripcion.innerHTML = "Descripción: " + producto.descripcion
+        etCantidad.innerHTML = "Cantidad: " + producto.cantidad
+        etCosto.innerHTML = "Costo: " + producto.costo
+    } else {
+        alert('Producto no encontrado')
+    }  
 })
 
 btnListar.addEventListener('click', () =>{
